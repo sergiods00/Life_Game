@@ -1,11 +1,7 @@
 package main;
 
 import java.awt.EventQueue;
-
-import javax.swing.JDialog;
-
 import window.Size_Life_Game;
-import window.Window_Life_Game;
 
 public class Main_Life_Game {
 

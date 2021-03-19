@@ -9,7 +9,6 @@ import java.awt.Dimension;
 
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 import main.Thread_Operaciones;
 
@@ -24,9 +23,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import javax.swing.border.LineBorder;
 
-public class Window_Life_Game<TableEditor>{
+public class Window_Life_Game{
 
 	private JFrame frame;
 	
@@ -79,6 +77,20 @@ public class Window_Life_Game<TableEditor>{
 		
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Reinicio");
 		mnNewMenu.add(mntmNewMenuItem_1);
+		mntmNewMenuItem_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (inicio == true) {
+					inicio = false;
+					accion.setInicio(inicio);
+					accion = new Thread_Operaciones(inicio, size, celdas);
+				}
+				for (int i = 0; i < size; i++) {
+					for (int j = 0; j < size; j++) {
+						celdas.get(i).get(j).setBackground(Color.BLACK);
+					}
+				}
+			}
+		});
 		
 		JMenu mnNewMenu_1 = new JMenu("Pincel");
 		menuBar.add(mnNewMenu_1);
